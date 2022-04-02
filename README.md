@@ -1,6 +1,7 @@
 # Assessing the communicated severity of COVID-19 with real-life severity
 
 Authors: Alexander Elg, Lea Dornacher and Sina Wahby
+
 **The code was stolen from Armin Pournaki and the Sciences Po Medialab**
 
 ## Introduction
