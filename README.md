@@ -1,6 +1,7 @@
 # Assessing the communicated severity of COVID-19 with real-life severity
 
 Authors: Alexander Elg, Lea Dornacher and Sina Wahby
+**The code was stolen from Armin Pournaki**
 
 ## Introduction
 
@@ -70,9 +71,327 @@ Comparing the figures above, it is clear that the relative peaks in ICU occupanc
 
 ### Data Collection
 
-**INSERT CODE BLOCKS**
+This section will present the code used to collect the data used to answer the research questions. 
+
+```
+import pandas as pd
+import json
+import spacy
+import requests 
+import random
+```
+
+#### Official Communication
+
+Only official UK government communications published on the governmental website were considered under this category (https://www.gov.uk/search/news-and-communications). The tool "Webscraper" was used to download the RSS- feed per time period. The tool automatically generated csv files, which were then imported. The csv files may be found in the repository.
+
+```
+%pip install 'openpyxl'
+import openpyxl
+officialTP1 = pd.read_excel("./govtp11.xlsx")
+officialTP2 = pd.read_excel("./govtp2.xlsx")
+officialTP3 = pd.read_excel("./govtp3_1.xlsx")
+```
+
+A function was then defined to convert extract the information from the csv files, placing them into dictionaries.
+
+```
+def dictget(df, key, value):
+    titlel = df[key].tolist()
+    textl = df[value].tolist()
+    results = {}
+    for i in range(len(titlel)):
+        results[titlel[i]]=textl[i]
+    return results
+```
+
+A dictionary per time period (TP) was then defined.
+
+```
+of1_dic = dictget(officialTP1, 'arttitle', 'combinedarttex')
+of2_dic = dictget(officialTP2, 'arttitle', 'combinedarttex')
+of3_dic = dictget(officialTP3, 'arttitle', 'combinedarttex')
+```
+
+#### The Guardian
+
+**Cher Alexander,**
+*Est-ce que tu pourrais écrire une mot sur le processus?*
+
+```
+import json
+import spacy
+import requests 
+import numpy as np
+import pandas as pd
+import warnings
+
+def searchguard(api_key,tag,q,begin_date,end_date, pages):
+    
+    qs = q.split()
+    """Returns a list of articles for a given query
+    
+    Parameters:
+    api_key (str): your Guardian api key
+    keyword (str): a keyword by which you want to filter the articles
+    begin_date (str): a begin date in the format "YYYYMMDD"
+    end_date (str): a begin date in the format "YYYYMMDD"
+    pages (int): how many pages to run through (you get 10 articles per page)
+    tag (str): the specific tag you're searching for (structured like {main topic}/{subtopic})
+    
+    
+    It should be able to process multiple keywords
+    Returns:
+    docs (list): a list of articles as dictionaries
+    """
+    st = ""
+    docs = []
+    if len(qs) > 1:
+        for w in qs:
+            st += w + "%20OR%20"
+    else:
+        st = qs[0]
+    for i in range(pages):
+        #pagination starts at 1 hence
+        i = i+1
+        api = f"https://content.guardianapis.com/search?page={i}&q={st}&tag={tag}&from-date={begin_date}&to-date={end_date}&show-fields=bodyText&api-key={api_key}"   
+        response = requests.get(api)
+        data = response.json()
+        docs.append(data)  
+    return docs
+
+def results(l):
+    #every list index contains a dictionary. iterate through them
+    #and initialise dictionary to return   
+    results={}
+    for q in l:
+        #this layer contains a list of dictionaries. iterate through them
+        for w in q.values():
+            #this **should** create a list with -- you know it -- more dictionaries
+            res = w['results']
+            for k in res:
+                #iterate through values in this final nested dictionary
+                for v in k.keys():
+                 #   print(k['webTitle'])
+                    #if i print v, i get 30 headlines, which is what I would expect
+                    #but only 11 get put in the dictionary
+                    #and create a new dictionary into which to put the articles
+                    results[k['webTitle']]=k['fields']['bodyText']             
+    return results
+
+api_key = "55f57dcd-e04e-4905-8734-e598ff187eaf"
+begin_date_TP1 = "2020-04-09"
+end_date_TP1 = "2020-04-15"
+begin_date_TP2 = "2020-08-25"
+end_date_TP2 = "2020-08-31"
+begin_date_TP3 = "2021-01-21"
+end_date_TP3 = "2021-01-27"
+tag = "politics/health"
+q = 'covid'
+```
+
+The retreived articles were then extracted into dictionaries (again per time period), with headlines as keys and body text as values.
+
+```
+p = 3
+gtp1 = (results(searchguard(api_key, tag, q, begin_date_TP1, end_date_TP1, p)))
+
+p = 2
+gtp2 = (results(searchguard(api_key, tag, q, begin_date_TP2, end_date_TP2, p)))
+
+p = 3
+gtp3 = (results(searchguard(api_key, tag, q, begin_date_TP3, end_date_TP3, p)))
+```
+
+#### The Telegraph
+
+As there is no public API for The Telegraph, the Mediacloud API was used instead. 
+
+```
+!pip install python-dotenv
+ !pip install mediacloud
+
+from dotenv import load_dotenv
+load_dotenv()  # load config from .env file
+
+import os, mediacloud.api
+# Read your personal API key from that .env file
+MC_API_KEY='a514f7d36dcb83bd196d4c2786500c8ef158f76af306e464afad27749de31d29'
+my_mc_api_key = os.getenv(MC_API_KEY)
+# A convention we use is to name your api client `mc`
+mc = mediacloud.api.MediaCloud(MC_API_KEY)
+mediacloud.__version__
+
+# make sure your connection and API key work by asking for the high-level system statistics
+mc.stats()
+
+# Telegraph media_id: '1750'
+matching_sources = mc.mediaList(name_like='telegraph', sort='num_stories')
+```
+
+This method, however, did not allow to download the entire text of each article. Thus, a dictionary with the articles' Urls was created, the articles then scraped and "sorted" into dictionaries based on time periods.
+
+```
+#!pip install newspaper3k
+from tqdm import tqdm
+from newspaper import Article
+import datetime
+
+def url_to_text(url):
+    article = Article(url)
+    article.download()
+    article.parse()
+    text = article.text
+    return text
+
+#since everything else is provided as a dictionary, let's do it here too
+def teldic (l):
+    result = {}
+    for i in range(len(l)):
+        result[i]=l[i]
+    return result
+
+query = "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic))"
+
+#generic function to retrieve articles from the telegraph
+def searchtel(begindate, enddate, query):
+    fetch_size = 100000
+    stories = []
+    last_processed_stories_id = 0
+    while len(stories) < 2000:
+        fetched_stories = mc.storyList(solr_query= f"{query} AND media_id:1750", # Telegraph media_id=1750
+                                   solr_filter=mc.dates_as_query_clause(begindate, enddate),
+                                   last_processed_stories_id=last_processed_stories_id, rows= fetch_size)
+        stories.extend(fetched_stories)
+        if len( fetched_stories) < fetch_size:
+            break
+        last_processed_stories_id = stories[-1]['processed_stories_TP1_id']
+
+    print(f'Number articles: {len(stories)}')
+
+    has_no_text=0
+    for story in stories:
+        if story['word_count'] is None:
+            has_no_text+=1
+
+    url_list=list()
+    for story in stories:
+        url_list.append(story['url'])
+    
+    url2text = dict.fromkeys(url_list)
+    for url in tqdm(url_list):
+        try:
+            text = url_to_text(url)
+            url2text[url] = text
+        except :
+            url2text[url] = 'Error'
+
+    telegraph=[x for x in list(url2text.values()) if x!='Error']
+
+    toreturn = teldic(telegraph)
+
+    return toreturn
+
+begin_TP1 = datetime.date(2020,4,9)
+end_TP1=datetime.date(2020,4,15)
+telegraph_TP1_dic = searchtel(begin_TP1, end_TP1, query)
+
+begin_TP2 = datetime.date(2020,8,25)
+end_TP2=datetime.date(2020,8,31)
+telegraph_TP2_dic = searchtel(begin_TP2, end_TP2, query)
+
+begin_TP3=datetime.date(2021,1,21)
+end_TP3=datetime.date(2021,1,27)
+telegraph_TP3_dic = searchtel(begin_TP3, end_TP3, query)     
+```
+
+#### Twitter
+
+Since the standard Twitter API only allows to retrieve of tweets from the past week, we may recur to scraping in order to collect tweets that were published earlier than this. The downside of this method is that it is a bit slower and that it does not allow us to retrieve any retweet information. Using minet, we can scrape tweets from the public API using an advanced search query.
+
+```
+!pip install minet
+!minet tw scrape --help
+
+# Time Period 1
+!minet tw scrape tweets "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic)) lang:en until:2020-04-15 since:2020-04-09" --limit 1000 > tweets_TP1.csv
+
+df_TP1_Twitter = pd.read_csv("./tweets_TP1.csv")
+
+df_TP1_Twitter = df_TP1_Twitter[df_TP1_Twitter['text'].notna()]
+
+c1indl = df_TP1_Twitter.index
+c12l = df_TP1_Twitter['text'].tolist()
+df_1_dic = {}
+for i in range(len(c1indl)):
+    df_1_dic[c1indl[i]]=c12l[i]
+    
+# Time Period 2
+!minet tw scrape tweets "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic)) lang:en until:2020-08-31 since:2020-08-25" --limit 1000 > tweets_TP2.csv
+
+df_TP2_Twitter = pd.read_csv("./tweets_TP2.csv")
+
+df_TP2_Twitter = df_TP2_Twitter[df_TP2_Twitter['text'].notna()]
+
+c2indl = df_TP2_Twitter.index
+c22l = df_TP2_Twitter['text'].tolist()
+df_2_dic = {}
+for i in range(len(c2indl)):
+    df_2_dic[c2indl[i]]=c22l[i]
+    
+# Time Period 3
+
+!minet tw scrape tweets "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic)) lang:en until:2021-01-27 since:2021-01-21" --limit 1000 > tweets_TP3.csv
+
+df_TP3_Twitter = pd.read_csv("./tweets_TP3.csv")
+
+df_TP3_Twitter = df_TP3_Twitter[df_TP3_Twitter['text'].notna()]
+
+c3indl = df_TP3_Twitter.index
+c32l = df_TP3_Twitter['text'].tolist()
+df_3_dic = {}
+for i in range(len(c3indl)):
+    df_3_dic[c3indl[i]]=c32l[i]
+```
+
+Dictionaries per time period, including index and text per tweet, were created from the csv files that were returned.
 
 ### Data Analysis
+
+In our model, we aim to measure the degree of urgency expressed in media and official communications.
+
+To do so, we start from the assumption that certain words are used to express that a situation is urgent ("urgency signifiers"), and we can identify such words in the texts extracted. On the other hand, one might intuitively assume that there are other words used to describe situations that are not of immediate urgency. However, such words are much harder to identify clearly. Therefore, in our model we assume that the absence or lower occurrence  of “urgency signifiers” implies that a situation is being conveyed as less urgent.
+
+Thus, in order to measure the level of occurrence of urgency signifiers in our sources, we first identify list of words that we intuitively would assume to signify urgency. 
+> critical, troubling, problematic, essential, troublesome, pivotal, serious, worrisome, extreme, major, significant, dangerous, vital, crucial, important, critical, urgent, risky, severe, worrying, stringent, unprecedented
+This list can be iteratively improved by using the most.similar function.
+Subsequently, we find the average vector of the words in our list. To check if this average vector is accurately capturing urgent words, we can apply the most.similar function to the vector and verify that the resulting words are, indeed, words used to convey urgency.
+
+Next, we create an identification function that compares the cosine similarity between a given word and the average vector with a set threshold value. If the cosine similarity exceeds the threshold, then the word fed to the function is classified as an "urgency signifier". If the cosine similarity falls below the threshold, then the word is not classified as an "urgency signifier". 
+To identify an appropriate threshold value, we applied the function to all adjectives within a given text and manually checked which value produced results that came closest to our human judgement of which words may be "urgency signifiers". With this approach, we simultaneously tested the general performance of our function in identifying appropriate "urgency signifiers".
+
+Finally, a the identification function is embedded in a function producing the overall proportion of "urgency signifiers" within the entire body of adjectives used in a text. **(NOTE: Should we explain why we use proportion of adjectives rather than proportion of all words?)**
+The average proportion of "urgency signifiers" of texts can then be compared across time periods, and also across different sources.
+**(NOTE: maybe still need to be more specific about which glove etc we are using....)**
+
+```
+#!pip install gensim
+#!pip install pandas
+
+import gensim
+import numpy as np
+import gensim.downloader as api
+import matplotlib.pyplot as plt
+from numpy.linalg import norm
+from collections import Counter
+
+nlp = spacy.load("en_core_web_sm")
+from statistics import mean
+
+# Choose pre-trained model and load it
+model = api.load("word2vec-google-news-300")
+```
+
 
 ## Results
 
