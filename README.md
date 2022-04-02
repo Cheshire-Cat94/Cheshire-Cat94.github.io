@@ -1,7 +1,7 @@
 # Assessing the communicated severity of COVID-19 with real-life severity
 
 Authors: Alexander Elg, Lea Dornacher and Sina Wahby
-**The code was stolen from Armin Pournaki**
+**The code was stolen from Armin Pournaki and the Sciences Po Medialab**
 
 ## Introduction
 
@@ -73,7 +73,6 @@ Comparing the figures above, it is clear that the relative peaks in ICU occupanc
 
 This section will present the code used to collect the data used to answer the research questions. 
 
-````
 ```
 import pandas as pd
 import json
@@ -81,13 +80,11 @@ import spacy
 import requests 
 import random
 ```
-````
 
 #### Official Communication
 
 Only official UK government communications published on the governmental website were considered under this category (https://www.gov.uk/search/news-and-communications). The tool "Webscraper" was used to download the RSS- feed per time period. The tool automatically generated csv files, which were then imported. The csv files may be found in the repository.
 
-````
 ```
 %pip install 'openpyxl'
 import openpyxl
@@ -95,11 +92,9 @@ officialTP1 = pd.read_excel("./govtp11.xlsx")
 officialTP2 = pd.read_excel("./govtp2.xlsx")
 officialTP3 = pd.read_excel("./govtp3_1.xlsx")
 ```
-````
 
 A function was then defined to convert extract the information from the csv files, placing them into dictionaries.
 
-````
 ```
 def dictget(df, key, value):
     titlel = df[key].tolist()
@@ -109,24 +104,20 @@ def dictget(df, key, value):
         results[titlel[i]]=textl[i]
     return results
 ```
-````
 
 A dictionary per time period (TP) was then defined.
 
-````
 ```
 of1_dic = dictget(officialTP1, 'arttitle', 'combinedarttex')
 of2_dic = dictget(officialTP2, 'arttitle', 'combinedarttex')
 of3_dic = dictget(officialTP3, 'arttitle', 'combinedarttex')
 ```
-````
 
 #### The Guardian
 
 **Cher Alexander,**
 *Est-ce que tu pourrais écrire une mot sur le processus?*
 
-````
 ```
 import json
 import spacy
@@ -196,11 +187,9 @@ end_date_TP3 = "2021-01-27"
 tag = "politics/health"
 q = 'covid'
 ```
-````
 
 The retreived articles were then extracted into dictionaries (again per time period), with headlines as keys and body text as values.
 
-````
 ```
 p = 3
 gtp1 = (results(searchguard(api_key, tag, q, begin_date_TP1, end_date_TP1, p)))
@@ -211,16 +200,14 @@ gtp2 = (results(searchguard(api_key, tag, q, begin_date_TP2, end_date_TP2, p)))
 p = 3
 gtp3 = (results(searchguard(api_key, tag, q, begin_date_TP3, end_date_TP3, p)))
 ```
-````
 
 #### The Telegraph
 
 As there is no public API for The Telegraph, the Mediacloud API was used instead. 
 
-````
 ```
 !pip install python-dotenv
- !pip install mediacloud
+!pip install mediacloud
 
 from dotenv import load_dotenv
 load_dotenv()  # load config from .env file
@@ -239,13 +226,11 @@ mc.stats()
 # Telegraph media_id: '1750'
 matching_sources = mc.mediaList(name_like='telegraph', sort='num_stories')
 ```
-````
 
 This method, however, did not allow to download the entire text of each article. Thus, a dictionary with the articles' Urls was created, the articles then scraped and "sorted" into dictionaries based on time periods.
 
-````
 ```
-#!pip install newspaper3k
+# !pip install newspaper3k
 from tqdm import tqdm
 from newspaper import Article
 import datetime
@@ -257,7 +242,7 @@ def url_to_text(url):
     text = article.text
     return text
 
-#since everything else is provided as a dictionary, let's do it here too
+# since everything else is provided as a dictionary, let's do it here too
 def teldic (l):
     result = {}
     for i in range(len(l)):
@@ -266,7 +251,7 @@ def teldic (l):
 
 query = "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic))"
 
-#generic function to retrieve articles from the telegraph
+# generic function to retrieve articles from the telegraph
 def searchtel(begindate, enddate, query):
     fetch_size = 100000
     stories = []
@@ -317,13 +302,11 @@ begin_TP3=datetime.date(2021,1,21)
 end_TP3=datetime.date(2021,1,27)
 telegraph_TP3_dic = searchtel(begin_TP3, end_TP3, query)     
 ```
-````
 
 #### Twitter
 
 Since the standard Twitter API only allows to retrieve of tweets from the past week, we may recur to scraping in order to collect tweets that were published earlier than this. The downside of this method is that it is a bit slower and that it does not allow us to retrieve any retweet information. Using minet, we can scrape tweets from the public API using an advanced search query.
 
-````
 ```
 !pip install minet
 !minet tw scrape --help
@@ -368,7 +351,6 @@ df_3_dic = {}
 for i in range(len(c3indl)):
     df_3_dic[c3indl[i]]=c32l[i]
 ```
-````
 
 Dictionaries per time period, including index and text per tweet, were created from the csv files that were returned.
 
@@ -391,7 +373,6 @@ Finally, a the identification function is embedded in a function producing the o
 The average proportion of "urgency signifiers" of texts can then be compared across time periods, and also across different sources.
 **(NOTE: maybe still need to be more specific about which glove etc we are using....)**
 
-````
 ```
 #!pip install gensim
 #!pip install pandas
@@ -409,8 +390,6 @@ from statistics import mean
 # Choose pre-trained model and load it
 model = api.load("word2vec-google-news-300")
 ```
-````
-
 
 ## Results
 
