@@ -62,7 +62,7 @@ Timing is important. Given the relative simplicity of our model (elaborated on i
 4. ICU occupancy better reflects the severity (in terms of its impact on society's capacity to manage the disease) than does overall case load.
 5. Therefore, we chose ICU occupancy as our proxy for societal severity.
 
-![Peak ICU first wave](https://github.com/Cheshire-Cat94/Cheshire-Cat94.github.io/blob/main/peak%20icu%20overall.png)
+![Peak ICU first wave](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20w1.png)
 
 ![overall ICU peaks](https://github.com/Cheshire-Cat94/Cheshire-Cat94.github.io/blob/main/peak%20icu%20overall.png)
 
