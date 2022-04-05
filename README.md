@@ -64,7 +64,7 @@ Timing is important. Given the relative simplicity of our model (elaborated on i
 
 ![Peak ICU first wave](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20w1.png)
 
-![overall ICU peaks](https://github.com/Cheshire-Cat94/Cheshire-Cat94.github.io/blob/main/peak%20icu%20overall.png)
+![overall ICU peaks](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20overall.png)
 
 ![incidence](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/new%20cases.png)
 
