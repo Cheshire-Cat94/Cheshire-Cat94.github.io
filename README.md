@@ -66,7 +66,7 @@ Timing is important. Given the relative simplicity of our model (elaborated on i
 
 ![overall ICU peaks](https://github.com/Cheshire-Cat94/Cheshire-Cat94.github.io/blob/main/peak%20icu%20overall.png)
 
-![incidence](https://github.com/Cheshire-Cat94/Cheshire-Cat94.github.io/blob/main/new%20cases.png)
+![incidence](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/new%20cases.png)
 
 Comparing the figures above, it is clear that the relative peaks in ICU occupancy and overall case load only faintly correspond to each other. The time periods for which we gathered data thus correspond to a week surrounding the peak in ICU occupancy during the first Covid wave in the UK (TP1); a week surrounding the absolute lowest rate of ICU occupancy for the dataset as a whole (which fortunately enough also is in between the two peaks) (TP2); and a week surrounding the absolute peak in ICU occupancy (TP3).
 
