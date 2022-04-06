@@ -401,7 +401,7 @@ model = api.load("word2vec-google-news-300")
 Recall our hypotheses from before: 
 >H1: <i>The proportion of urgent words is lower in TP2 than in TP1 and TP3</i>\
 >H2: <i>The proportion of urgent words is lower in TP3 than in TP1</i>
->
+
 Originally, we found rather robust evidence for H1, but virtually zero evidence for H2. This is reflected in figure x below, which illustrates how urgency, as predicted, generally speaking is lower in the dull period in between covid waves. We confirmed these graphical findings by running a 2-sided t-test which proved that almost all results were statistically significant. These results were, however, not replicable. Upon testing our code again, we noticed that something likely had changed with regard to our word embedding model, resulting in ever so slightly different similarity scores. However small, those scores significantly affected the statistical robustness and significance of our findings.
 
 ![Figure 5: New results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot04.png)
