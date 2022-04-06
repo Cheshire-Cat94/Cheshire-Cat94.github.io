@@ -393,7 +393,7 @@ model = api.load("word2vec-google-news-300")
 
 ## Results
 <b>Do our results indicate that we can use simple natural language processing methods to measure communicated urgency?</b> \
-<i>YES!\
+<i>YES!
 ...and no.</i>
 
 ![Figure 4: Old results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Screenshot%202022-04-06%20at%2002.02.02.png)
