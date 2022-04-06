@@ -116,8 +116,7 @@ of3_dic = dictget(officialTP3, 'arttitle', 'combinedarttex')
 
 #### The Guardian
 
-**Cher Alexander,**
-*Est-ce que tu pourrais écrire une mot sur le processus?*
+The Guardian provides a comprehensive API that gives users access to everything except pictures and possible audio clips. We can therefore scrape every single word on specific topics during our chosen time periods.
 
 ```
 import json
