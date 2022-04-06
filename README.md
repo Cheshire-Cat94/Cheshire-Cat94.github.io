@@ -396,20 +396,27 @@ model = api.load("word2vec-google-news-300")
 <i>YES!\
 ...and no.</i>
 
+![Figure 4: Old results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Screenshot%202022-04-06%20at%2002.02.02.png)
 
 Recall our hypotheses from before: 
 >H1: <i>The proportion of urgent words is lower in TP2 than in TP1 and TP3</i>\
 >H2: <i>The proportion of urgent words is lower in TP3 than in TP1</i>
 >
 Originally, we found rather robust evidence for H1, but virtually zero evidence for H2. This is reflected in figure x below, which illustrates how urgency, as predicted, generally speaking is lower in the dull period in between covid waves. We confirmed these graphical findings by running a 2-sided t-test which proved that almost all results were statistically significant. These results were, however, not replicable. Upon testing our code again, we noticed that something likely had changed with regard to our word embedding model, resulting in ever so slightly different similarity scores. However small, those scores significantly affected the statistical robustness and significance of our findings.
- 
+
+![Figure 5: New results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot04.png)
+
 Our revised results maintain that there seems to be a difference in urgency between TP1 and TP2, but reveal significant variation and are not as statistically sound.
  
 <b>New findings</b>\
 Comparing these new findings with what we found earlier, it is clear that while the overall trend persists, there is significant variation. This holds true in the most dramatic fashion especially for official government communication, where the variation within the 95 %-confidence interval is so marked that it is possible that there was no change in urgency at all. The relatively small sample size (max n=21) of the government communication data set might clue us as to why we should expect such significant variation. Indeed, when comparing to the exponentially larger Twitter data set (n=1000), sample size seems to provide the most plausible explanation for this volatility. 
 
 Out of all of the sources, The Telegraph displays a rather unusual pattern. What our findings seem to indicate is that The Telegraph news desk were considerably more alarmist than its counterpart at the Guardian during the least severe period, while dropping the subject completely once we entered January of 2021. 
- 
+
+![Figure 6: Box plot SourcesXUrgency Proportion](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot03.png)
+
+![Figure 7: Box plot SourcesXUrgency Proportion](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot02.png)
+
 The two box plots above may elucidate some of the questions that might have arisen from interpreting the graph above. First of all, they confirm the U-shaped behaviour of The Guardian and Official Government Communication, and they reveal that &mdash; at least in comparison to Twitter &mdash; newspapers and governments alike displayed communicative coherence during most of the pandemic. Certain outliers are in line with surveys that find that citizens found official communication contradictory and confusing. In this regard, 10 Downing Street seems to have released some statements downplaying the severity of the pandemic during the first peak, while fear-mongering during the third [something on lockdowns here?]. 
 
 <b>Twitter as pandemic tracker</b>\
