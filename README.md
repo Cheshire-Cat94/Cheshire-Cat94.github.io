@@ -311,6 +311,15 @@ Since the standard Twitter API only allows to retrieve of tweets from the past w
 !pip install minet
 !minet tw scrape --help
 
+#generic dictionary making function for tweets
+def tweetdic(df):
+    indl = df.index
+    textl = df['text'].tolist()
+    dic_to_return = {}
+    for i in range(len(indl)):
+        dic_to_return[indl[i]]=textl[i]
+    return dic_to_return
+
 # Time Period 1
 !minet tw scrape tweets "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic)) lang:en until:2020-04-15 since:2020-04-09" --limit 1000 > tweets_TP1.csv
 
@@ -318,12 +327,10 @@ df_TP1_Twitter = pd.read_csv("./tweets_TP1.csv")
 
 df_TP1_Twitter = df_TP1_Twitter[df_TP1_Twitter['text'].notna()]
 
-c1indl = df_TP1_Twitter.index
-c12l = df_TP1_Twitter['text'].tolist()
-df_1_dic = {}
-for i in range(len(c1indl)):
-    df_1_dic[c1indl[i]]=c12l[i]
-    
+#putting relevant information into dictionary: index is key, text is value
+
+twtp1_dic = tweetdic(df_TP1_Twitter)
+
 # Time Period 2
 !minet tw scrape tweets "((UK OR England) AND (quarantine OR lockdown OR covid19 OR coronavirus OR corona OR pandemic)) lang:en until:2020-08-31 since:2020-08-25" --limit 1000 > tweets_TP2.csv
 
@@ -331,11 +338,7 @@ df_TP2_Twitter = pd.read_csv("./tweets_TP2.csv")
 
 df_TP2_Twitter = df_TP2_Twitter[df_TP2_Twitter['text'].notna()]
 
-c2indl = df_TP2_Twitter.index
-c22l = df_TP2_Twitter['text'].tolist()
-df_2_dic = {}
-for i in range(len(c2indl)):
-    df_2_dic[c2indl[i]]=c22l[i]
+twtp2_dic = tweetdic(df_TP2_Twitter)
     
 # Time Period 3
 
@@ -345,11 +348,8 @@ df_TP3_Twitter = pd.read_csv("./tweets_TP3.csv")
 
 df_TP3_Twitter = df_TP3_Twitter[df_TP3_Twitter['text'].notna()]
 
-c3indl = df_TP3_Twitter.index
-c32l = df_TP3_Twitter['text'].tolist()
-df_3_dic = {}
-for i in range(len(c3indl)):
-    df_3_dic[c3indl[i]]=c32l[i]
+twtp3_dic = tweetdic(df_TP3_Twitter)
+
 ```
 
 Dictionaries per time period, including index and text per tweet, were created from the csv files that were returned.
@@ -392,6 +392,28 @@ model = api.load("word2vec-google-news-300")
 ```
 
 ## Results
+<b>Do our results indicate that we can use simple natural language processing methods to measure communicated urgency?</b> \
+<i>YES!\
+...and no.</i>
+
+
+Recall our hypotheses from before: 
+>H1: <i>The proportion of urgent words is lower in TP2 than in TP1 and TP3</i>\
+>H2: <i>The proportion of urgent words is lower in TP3 than in TP1</i>
+>
+Originally, we found rather robust evidence for H1, but virtually zero evidence for H2. This is reflected in figure x below, which illustrates how urgency, as predicted, generally speaking is lower in the dull period in between covid waves. We confirmed these graphical findings by running a 2-sided t-test which proved that almost all results were statistically significant. These results were, however, not replicable. Upon testing our code again, we noticed that something likely had changed with regard to our word embedding model, resulting in ever so slightly different similarity scores. However small, those scores significantly affected the statistical robustness and significance of our findings.
+ 
+Our revised results maintain that there seems to be a difference in urgency between TP1 and TP2, but reveal significant variation and are not as statistically sound.
+ 
+<b>New findings</b>\
+Comparing these new findings with what we found earlier, it is clear that while the overall trend persists, there is significant variation. This holds true in the most dramatic fashion especially for official government communication, where the variation within the 95 %-confidence interval is so marked that it is possible that there was no change in urgency at all. The relatively small sample size (max n=21) of the government communication data set might clue us as to why we should expect such significant variation. Indeed, when comparing to the exponentially larger Twitter data set (n=1000), sample size seems to provide the most plausible explanation for this volatility. 
+
+Out of all of the sources, The Telegraph displays a rather unusual pattern. What our findings seem to indicate is that The Telegraph news desk were considerably more alarmist than its counterpart at the Guardian during the least severe period, while dropping the subject completely once we entered January of 2021. 
+ 
+The two box plots above may elucidate some of the questions that might have arisen from interpreting the graph above. First of all, they confirm the U-shaped behaviour of The Guardian and Official Government Communication, and they reveal that &mdash; at least in comparison to Twitter &mdash; newspapers and governments alike displayed communicative coherence during most of the pandemic. Certain outliers are in line with surveys that find that citizens found official communication contradictory and confusing. In this regard, 10 Downing Street seems to have released some statements downplaying the severity of the pandemic during the first peak, while fear-mongering during the third [something on lockdowns here?]. 
+
+<b>Twitter as pandemic tracker</b>\
+Unsurprisingly, Twitter proved to showcase the most extreme opinions in either direction. Interesting to note, however, especially in comparison to other types of communication, is that Twitter serves as a rather competent gauge of aggregate public and official opinion. During the first peak, its users did not, as with most governments, seem to have picked up on the fact that the outbreak was particularly serious, which could explain why we do not see any outliers in any direction. Things change during the absolute low. Here, there is a large number of outliers that drag the average urgency score in a negative direction, perhaps suggesting that after having spent a summer sequestered in their rooms, the Twitter user base wanted to enjoy life again. From the second to the third peak, opinion shifts massively. All of those who previously wanted to remove societal restrictions now seem to want to institute the most draconian of safety measures, indicating that, taken with a pinch of salt, Twitter could be a serviceable pandemic tracker [maybe some research on this?]
 
 ## Discussion
 
