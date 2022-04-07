@@ -2,8 +2,6 @@
 
 Authors: Alexander Elg, Lea Dornacher and Sina Wahby
 
-**The code was stolen from Armin Pournaki and the Sciences Po Medialab**
-
 ## Introduction
 
 ### Background
@@ -62,17 +60,17 @@ Timing is important. Given the relative simplicity of our model (elaborated on i
 4. ICU occupancy better reflects the severity (in terms of its impact on society's capacity to manage the disease) than does overall case load.
 5. Therefore, we chose ICU occupancy as our proxy for societal severity.
 
-![Peak ICU first wave](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20w1.png)
+![Figure 1_Peak ICU first wave](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20w1.png)
 
-![overall ICU peaks](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20overall.png)
+![Figure 2_overall ICU peaks](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/peak%20icu%20overall.png)
 
-![incidence](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/new%20cases.png)
+![Figure 3_incidence](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/new%20cases.png)
 
 Comparing the figures above, it is clear that the relative peaks in ICU occupancy and overall case load only faintly correspond to each other. The time periods for which we gathered data thus correspond to a week surrounding the peak in ICU occupancy during the first Covid wave in the UK (TP1); a week surrounding the absolute lowest rate of ICU occupancy for the dataset as a whole (which fortunately enough also is in between the two peaks) (TP2); and a week surrounding the absolute peak in ICU occupancy (TP3).
 
 ### Data Collection
 
-This section will briefly present our data collection methods per source. The respective code can be found in the respoitory under the file name *DDPS_Covid_Severity.py*
+This section will briefly present our data collection methods per source. The respective code can be found in the respoitory under the file name *Covid severity NLP.ipynb*
 
 #### Official Communication
 
@@ -121,15 +119,18 @@ Finally, a the identification function is embedded in a function producing the o
 The average proportion of "urgency signifiers" of texts can then be compared across time periods, and also across different sources.
 
 ## Results
-<b>Do our results indicate that we can use simple natural language processing methods to measure communicated urgency?</b> \
-<i>YES!
-...and no.</i>
+**Do our results indicate that we can use simple natural language processing methods to measure communicated urgency?**
+
+*YES!
+...and no.*
 
 ![Figure 4: Old results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Screenshot%202022-04-06%20at%2002.02.02.png)
 
 Recall our hypotheses from before: 
->H1: <i>The proportion of urgent words is lower in TP2 than in TP1 and TP3</i>\
->H2: <i>The proportion of urgent words is lower in TP3 than in TP1</i>
+
+>H1: *The proportion of urgent words is lower in TP2 than in TP1 and TP3*
+
+>H2: *The proportion of urgent words is lower in TP3 than in TP1*
 
 Originally, we found rather robust evidence for H1, but virtually zero evidence for H2. This is reflected in figure x below, which illustrates how urgency, as predicted, generally speaking is lower in the dull period in between covid waves. We confirmed these graphical findings by running a 2-sided t-test which proved that almost all results were statistically significant. These results were, however, not replicable. Upon testing our code again, we noticed that something likely had changed with regard to our word embedding model, resulting in ever so slightly different similarity scores. However small, those scores significantly affected the statistical robustness and significance of our findings.
 
@@ -137,7 +138,8 @@ Originally, we found rather robust evidence for H1, but virtually zero evidence 
 
 Our revised results maintain that there seems to be a difference in urgency between TP1 and TP2, but reveal significant variation and are not as statistically sound.
  
-<b>New findings</b>\
+**New findings**
+
 Comparing these new findings with what we found earlier, it is clear that while the overall trend persists, there is significant variation. This holds true in the most dramatic fashion especially for official government communication, where the variation within the 95 %-confidence interval is so marked that it is possible that there was no change in urgency at all. The relatively small sample size (max n=21) of the government communication data set might clue us as to why we should expect such significant variation. Indeed, when comparing to the exponentially larger Twitter data set (n=1000), sample size seems to provide the most plausible explanation for this volatility. 
 
 Out of all of the sources, The Telegraph displays a rather unusual pattern. What our findings seem to indicate is that The Telegraph news desk were considerably more alarmist than its counterpart at the Guardian during the least severe period, while dropping the subject completely once we entered January of 2021. 
@@ -148,10 +150,31 @@ Out of all of the sources, The Telegraph displays a rather unusual pattern. What
 
 The two box plots above may elucidate some of the questions that might have arisen from interpreting the graph above. First of all, they confirm the U-shaped behaviour of The Guardian and Official Government Communication, and they reveal that &mdash; at least in comparison to Twitter &mdash; newspapers and governments alike displayed communicative coherence during most of the pandemic. Certain outliers are in line with surveys that find that citizens found official communication contradictory and confusing. In this regard, 10 Downing Street seems to have released some statements downplaying the severity of the pandemic during the first peak, while fear-mongering during the third [something on lockdowns here?]. 
 
-<b>Twitter as pandemic tracker</b>\
+**Twitter as pandemic tracker**
+
 Unsurprisingly, Twitter proved to showcase the most extreme opinions in either direction. Interesting to note, however, especially in comparison to other types of communication, is that Twitter serves as a rather competent gauge of aggregate public and official opinion. During the first peak, its users did not, as with most governments, seem to have picked up on the fact that the outbreak was particularly serious, which could explain why we do not see any outliers in any direction. Things change during the absolute low. Here, there is a large number of outliers that drag the average urgency score in a negative direction, perhaps suggesting that after having spent a summer sequestered in their rooms, the Twitter user base wanted to enjoy life again. From the second to the third peak, opinion shifts massively. All of those who previously wanted to remove societal restrictions now seem to want to institute the most draconian of safety measures, indicating that, taken with a pinch of salt, Twitter could be a serviceable pandemic tracker [maybe some research on this?]
 
 ## Discussion
+
+**At first glance**
+
+We can glean several different things from these results. While not conclusive, they serve as an indication that given more time to explore how urgency thresholds interact with different models, and how the method itself interacts with different models, it may be possible to measure urgency (or really any other type of sentiment for which you could construct a list of representative words) by measuring the cosine distance to an ideal mean.
+
+![Figure 4_Rplot 03](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot03.png)
+
+**On the difference between sources**
+
+When moving on from the confusion of the first wave, a clear difference between our liberal and conservative outlets emerges. Interestingly, this difference does not quite go in the direction that we would have expected. While the Guardian largely mirrors how the government communicated about the pandemic, the Telegraph diverged in both more- and less severe directions. Performing spot samples on the data set reveals that a plausible explanation for the unexpected shape of the Telegraph's reporting could be that it reported about other countries' -- specifically those popular among British holiday makers -- to a much larger extent during TP2, while it reported in a more critical fashion about various restrictions as more data about their efficacy had emerged by TP3. For example, an article referred to the Australian and Kiwi lockdowns as 'stop-gap measures', unlikely to keep the virus at bay in the long run. A further possible explanation for the counterintuitive development of the proportions of urgent words over time in the Telegraph dataset is that not the health situation per se, but the corresponding restrictions are framed as urgent. For example, lockdowns could have been framed by the Telegraph as dangerous infringements on individual liberties. Thus, urgent language could be temporally associated with restrictions, which could interfere with our measurement of the association between urgent language with hospitalization rates.
+
+**Different reactions to more data**
+
+Our second hypothesis, that we would observe a kind of fatigue stemming from persistent reporting about the pandemic for several years, was soundly rejected. Instead, most outlets, including the general public, seemed to have understood the seriousness of the virus by the third time period. The Telegraph data does not indicate that it is opposed to this view per se, but rather that it reacted to the knowledge we had about the pandemic differently than other sources. Shifting from treating the virus as something to be fought to something to be lived with could of course be interpreted as a move away from the urgent to the mundane, but flipped on its head the same reaction could be interpreted as treating the virus as so severe that we cannot fight it. If the same methodology were to be used on a bigger dataset, capturing the shift from prevention to mitigation or facilitation could be an important parameter to keep in mind as this likely would shift the surface level urgency of communication downwards while the overall picture might remain the same.
+
+![Figure 5_Rplot 04](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot04.png)
+
+**Patterns follow (somewhat) intuitive notions about reliability**
+
+The shape of the data as well as the proportions confirm intuitive or perhaps classical notions about reliability. The Government exhibits both the most significant difference between time periods, and the highest urgency proportions. The Guardian follows a similar shape, suggesting that it (think about official government communication in other channels) largely follows global best available data.
 
 ### Limitations
 
