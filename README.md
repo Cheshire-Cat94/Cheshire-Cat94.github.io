@@ -186,9 +186,9 @@ There are several noteworthy limitations to our model.
 
 Firstly, the Word2Vec model does not take into account the context of a word. This means that using our method, the following two sentences would have the same level of urgency:
 
-> My name is urgent
+> The situation is urgent
 
-> My name is not urgent
+> The situation is not urgent
 
 Negations are only one example of how context may change the meaning, ultimately the urgency of a sentence. Excluding direct negations would have been a way to partially adjust for this issue. However, after having read a few articles contained in our data set, we did not expect a significant share of direct negations. Thus, we did not expect our result to become more reliable by excluding simple negations from our model (e.g. not urgent, not critcal, i.e. negation directly in front of adjective).
 
