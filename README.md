@@ -175,8 +175,24 @@ Our second hypothesis, that we would observe a kind of fatigue stemming from per
 **Patterns follow (somewhat) intuitive notions about reliability**
 
 The shape of the data as well as the proportions confirm intuitive or perhaps classical notions about reliability. The Government exhibits both the most significant difference between time periods, and the highest urgency proportions. The Guardian follows a similar shape, suggesting that it (think about official government communication in other channels) largely follows global best available data.
+- Findings indicate that it might be possible to capture urgency through simple NLP
+- Clear difference between liberal and conservative outlets
+- Contrary to H2, most outlets had realised the seriousness of Covid by TP3: no indication of fatigue (unless you are conservative)
+- General public slower to catch up to speed
+- Pattern follows (somewhat) intuitive notions about reliability
 
 ### Limitations
+
+There are several noteworthy limitations to our model. 
+Firstly, the Word2Vec model is not contextualized to texts treating the subject of Covid-19. If we had trained a contextualized model (FastText or BERT) ourselves, results may have been more reliable, as certain words are used in specific and context-dependent ways. Using FastText as a direct alternative to Word2Vec would still have allowed us to use vector representations of words. However, while Word2Vec operates on the word level, FastText operates on the character level. BERT also falls within word embedding models, but generates two vectors and is context specific. BERT models are transformer based, i.e. a bi-directional transformer model is trained on very large unlabelled text corpora. Enormous amounts of domain-specialized text data are however required to initially create general trained models from scratch, such as BioBERT or SciBERT models. Subsequently, such models can be fine-tuned in a rather straightforward fashion. **(Don't know how to include the covid twitter bert as i have no idea what that is.....)**
+
+A further potential point of concern may be that the pre-trained Google Glove used in our analysis is somewhat outdated. However, it seems unlikely that the use and linguistic meaning of urgency-related words have changed significantly over the last few years.
+
+Concerning the size of our dataset, especially with respect to official communications, we see that a larger dataset would have been necessary to reach conventional significance levels in testing our effect sizes. this could have been done by extending the time periods or by looking at more time periods and grouping "lows" and "highs". 
+
+From a methodological standpoint, our proposed framework to analyze urgency in text does not consider negations, which could potentially be biasing results in a problematic way. However, we have at this point decided to not exclude simple negations from our model (e.g. not urgent, not critcal, i.e. negation directly in front of adjective) as we expected a significant share of negations to be indirect.
+
+Additionally, the urgency threshold is a potential weak spot of our model, as the value ultimately was chosen based on trial an error procedure. We were not able to compare outcomes and findings for a range of threshold values choses, which may be an interesting approach to better understand the robustness of a vector-based approach to measuring urgency. it is also worth noting that the threshold value that seems to appropriately represent human judgement on urgency of words is highly sensitive to the pre-trained model chosen.
 
 ## References
 
