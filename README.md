@@ -134,7 +134,7 @@ Recall our hypotheses from before:
 
 Originally, we found rather robust evidence for H1, but virtually zero evidence for H2. This is reflected in figure x below, which illustrates how urgency, as predicted, generally speaking is lower in the dull period in between covid waves. We confirmed these graphical findings by running a 2-sided t-test which proved that almost all results were statistically significant. These results were, however, not replicable. Upon testing our code again, we noticed that something likely had changed with regard to our word embedding model, resulting in ever so slightly different similarity scores. However small, those scores significantly affected the statistical robustness and significance of our findings.
 
-![Figure 5: New results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot04.png)
+![Figure 5: New results](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot05.png)
 
 Our revised results maintain that there seems to be a difference in urgency between TP1 and TP2, but reveal significant variation and are not as statistically sound.
  
@@ -170,7 +170,7 @@ When moving on from the confusion of the first wave, a clear difference between 
 
 Our second hypothesis, that we would observe a kind of fatigue stemming from persistent reporting about the pandemic for several years, was soundly rejected. Instead, most outlets, including the general public, seemed to have understood the seriousness of the virus by the third time period. The Telegraph data does not indicate that it is opposed to this view *per se*, but rather that it reacted to the knowledge we had about the pandemic differently than other sources. Shifting from treating the virus as something to be *fought* to something to be *lived* with could of course be interpreted as a move away from the urgent to the mundane, but flipped on its head the same reaction could be interpreted as treating the virus as so severe that we cannot fight it. If the same methodology were to be used on a bigger dataset, capturing the shift from *prevention* to *mitigation* or *facilitation* could be an important parameter to keep in mind as this likely would shift the surface level urgency of communication downwards while the overall picture might remain the same.
 
-![Figure 5_Rplot 04](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot04.png)
+![Figure 5_Rplot 04](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot05.png)
 
 **Patterns follow (somewhat) intuitive notions about reliability**
 
@@ -212,7 +212,7 @@ Finally, all outlets published wildly varying amounts of articles during our cho
 
 Boyd, D., & Crawford, K. (2011). Six provocations for big data. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1926431
 
-Covid comms: Flexible messaging or government u-turn? | prca. (n.d.). Retrieved 7 April 2022, from https://www.prca.org.uk/Covid-Comms-Flexible-messaging-government-U-turn
+*Covid comms: Flexible messaging or government u-turn?* | prca. (n.d.). Retrieved 7 April 2022, from https://www.prca.org.uk/Covid-Comms-Flexible-messaging-government-U-turn
 
 Fetzer, T. (2022). Subsidising the spread of COVID-19: Evidence from the UK’S Eat-Out-to-Help-Out Scheme*, The Economic Journal, 132(643), Pages 1200–1217. https://doi.org/10.1093/ej/ueab074
 
