@@ -5,7 +5,7 @@ Authors: Alexander Elg, Lea Dornacher and Sina Wahby
 ## Introduction
 
 ### Background
-
+<div style="text-align: justify">
 It is scarcely an overstatement to suggest that the COVID-19 pandemic has had enormous ramifications on the way we live, work, and relate to each other and the world around us. While sequestered and isolated in their poorly organised home offices, academics the world over have revelled at the opportunity to analyse every single facet of the nature of the disease; the management of the response to it; how close we should be to each other; whether mask mandates work. The list could be infinitely long. A curious common denominator among these lines of inquiry, however, has been the focus on **narrative shaping behaviour**. Not only has the response to the pandemic been scrutinised, but the manner in which that response has been detailed and delivered to the public, namely the **crisis communication**, has been seemingly almost as important.
 
 ### Crisis Communication
@@ -208,6 +208,7 @@ Additionally, it was not possible to completely match the search methodology ove
 
 Finally, all outlets published wildly varying amounts of articles during our chosen time periods, and although we measured our results in proportions and not absolute frequency, the presence of more significant outliers among the sources with bigger sample sizes (namely, the Telegraph and Twitter), of course impacts the mean communicated urgency for those outlets. 
 
+</div>
 ## References
 
 Boyd, D., & Crawford, K. (2011). *Six provocations for big data*. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1926431
