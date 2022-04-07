@@ -208,6 +208,10 @@ Additionally, it was not possible to completely match the search methodology ove
 
 Finally, all outlets published wildly varying amounts of articles during our chosen time periods, and although we measured our results in proportions and not absolute frequency, the presence of more significant outliers among the sources with bigger sample sizes (namely, the Telegraph and Twitter), of course impacts the mean communicated urgency for those outlets. 
 
+## Conclusion
+
+In conclusion, the findings show that indeed it is possible to use simple NLP to detect a difference in communicated urgency urgency over the course of the COVID-19 pandemic. Applying more complex NLP models to assess the change of communicated urgency over time, may provide us with further insights, which in turn may aid in optimising future crisis communication.
+
 ## References
 
 Boyd, D., & Crawford, K. (2011). *Six provocations for big data*. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1926431
