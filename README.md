@@ -174,7 +174,7 @@ Our second hypothesis, that we would observe a kind of fatigue stemming from per
 
 **Patterns follow (somewhat) intuitive notions about reliability**
 
-The shape of the data as well as the proportions confirm intuitive or perhaps classical notions about reliability. The Government exhibits both the most significant difference between time periods, and the highest urgency proportions. Considering the amount of criticism related to communicative confusions and u-turns levied against 10 Downing Street over the course of the pandemic (*Covid Comms: Flexible Messaging or Government u-Turn?* | Prca, n.d.) it is perhaps surprising to learn that official communication follows the most intuitive pattern. A plausible explanation for this discrepancy is that governments communicate through many different channels, and it is likely that statements in interviews and on social media are more widely disseminated and thus constitute the "public" face of the government to a much greater extent than its press corner. If we were to extend the scope of our research, another topic could therefore be to investigate whether there is a discrepancy between the type of official statements conveyed through the government's official channels and the statements issued by its representatives.
+The shape of the data as well as the proportions confirm intuitive or perhaps classical notions about reliability. The Government exhibits both the most significant difference between time periods, and the highest urgency proportions. Considering the amount of criticism related to communicative confusions and u-turns levied against 10 Downing Street over the course of the pandemic (Cook, n.d.) it is perhaps surprising to learn that official communication follows the most intuitive pattern. A plausible explanation for this discrepancy is that governments communicate through many different channels, and it is likely that statements in interviews and on social media are more widely disseminated and thus constitute the "public" face of the government to a much greater extent than its press corner. If we were to extend the scope of our research, another topic could therefore be to investigate whether there is a discrepancy between the type of official statements conveyed through the government's official channels and the statements issued by its representatives.
 
 **General public slower to catch up to speed**
 
@@ -210,24 +210,24 @@ Finally, all outlets published wildly varying amounts of articles during our cho
 
 ## References
 
-Boyd, D., & Crawford, K. (2011). Six provocations for big data. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1926431
+Boyd, D., & Crawford, K. (2011). *Six provocations for big data*. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1926431
 
-*Covid comms: Flexible messaging or government u-turn?* | prca. (n.d.). Retrieved 7 April 2022, from https://www.prca.org.uk/Covid-Comms-Flexible-messaging-government-U-turn
+Cook, L. (n.d.) *Covid comms: Flexible messaging or government u-turn?* PRCA. Retrieved 7 April 2022, from https://www.prca.org.uk/Covid-Comms-Flexible-messaging-government-U-turn
 
-Fetzer, T. (2022). Subsidising the spread of COVID-19: Evidence from the UK’S Eat-Out-to-Help-Out Scheme*, The Economic Journal, 132(643), Pages 1200–1217. https://doi.org/10.1093/ej/ueab074
+Fetzer, T. (2022). *Subsidising the spread of COVID-19: Evidence from the UK’S Eat-Out-to-Help-Out Scheme*, The Economic Journal, 132(643), Pages 1200–1217. https://doi.org/10.1093/ej/ueab074
 
-Fletcher, R., Kalogeropoulos, A., Kleis Nielsen, R. (2020). Majority think UK government COVID-19 response worse than other developed countries, almost half say response too focused on protecting the economy. The UK COVID-19 news and information project. https://reutersinstitute.politics.ox.ac.uk/majority-think-uk-government-covid-19-response-worse-other-developed-countries-almost-half-say
+Fletcher, R., Kalogeropoulos, A., Kleis Nielsen, R. (2020). *Majority think UK government COVID-19 response worse than other developed countries, almost half say response too focused on protecting the economy*. The UK COVID-19 news and information project. https://reutersinstitute.politics.ox.ac.uk/majority-think-uk-government-covid-19-response-worse-other-developed-countries-almost-half-say
 
-Kleis Nielsen, R., Fletcher, R., Kalogeropoulos, A., Simon, F. (2020). Communications in the coronavirus crisis: lessons for the second wave. The UK COVID-19 news and information project. https://reutersinstitute.politics.ox.ac.uk/communications-coronavirus-crisis-lessons-second-wave
+Kleis Nielsen, R., Fletcher, R., Kalogeropoulos, A., Simon, F. (2020). *Communications in the coronavirus crisis: lessons for the second wave*. The UK COVID-19 news and information project. https://reutersinstitute.politics.ox.ac.uk/communications-coronavirus-crisis-lessons-second-wave
 
-Lockyer B, Islam S, Rahman A, Dickerson J,  Pickett K, Sheldon T, Wright J, McEachan R, Sheard L; Bradford Institute  for Health Research Covid-19 Scientific Advisory Group. Understanding  COVID-19 misinformation and vaccine hesitancy in context: Findings from a  qualitative study involving citizens in Bradford, UK. Health Expect.  2021 Aug;24(4):1158-1167. doi: 10.1111/hex.13240. Epub 2021 May 4. PMID:  33942948; PMCID: PMC8239544.
+Lockyer B, Islam S, Rahman A, Dickerson J,  Pickett K, Sheldon T, Wright J, McEachan R, Sheard L; Bradford Institute  for Health Research Covid-19 Scientific Advisory Group. *Understanding  COVID-19 misinformation and vaccine hesitancy in context: Findings from a  qualitative study involving citizens in Bradford, UK*. Health Expect.  2021 Aug;24(4):1158-1167. doi: 10.1111/hex.13240. Epub 2021 May 4. PMID:  33942948; PMCID: PMC8239544.
 
-Mason, R. (2022). UK government has abandoned its own Covid health advice, leak reveals. The Guardian. https://www.theguardian.com/world/2022/feb/25/government-has-abandoned-its-own-covid-health-advice-leak-reveals
+Mason, R. (2022). *UK government has abandoned its own Covid health advice, leak reveals*. The Guardian. https://www.theguardian.com/world/2022/feb/25/government-has-abandoned-its-own-covid-health-advice-leak-reveals
 
-Müller, M., Salathé, M., Kummervold, P. (2020) COVID-Twitter-BERT: A Natural Language Processing Model to Analyse COVID-19 Content on Twitter. Cornell University. https://arxiv.org/abs/2005.07503
+Müller, M., Salathé, M., Kummervold, P. (2020) *COVID-Twitter-BERT: A Natural Language Processing Model to Analyse COVID-19 Content on Twitter*. Cornell University. https://arxiv.org/abs/2005.07503
 
-Schwarz, A., Seeger, M. W., Auer, C., Brooke Rogers, M., & Pearce, J. M. (2016). Chapter 4. The Psychology of Crisis Communication. In The Handbook of International Crisis Communication Research. Essay, John Wiley & Sons.  
+Schwarz, A., Seeger, M. W., Auer, C., Brooke Rogers, M., & Pearce, J. M. (2016). Chapter 4. *The Psychology of Crisis Communication*. In The Handbook of International Crisis Communication Research. Essay, John Wiley & Sons.  
 
-The Lancet Microbe (Ed.). (2021). UK government's COVID-19 Gamble. The Lancet Microbe, 2(8). https://doi.org/10.1016/s2666-5247(21)00186-5
+The Lancet Microbe (Ed.). (2021). *UK government's COVID-19 Gamble*. The Lancet Microbe, 2(8). https://doi.org/10.1016/s2666-5247(21)00186-5
 
-Wu, C., Wu, F., Yu, Y., Qi, T., Huang, Y., Liu, Q. (2021) NewsBERT: Distilling Pre-trained Language Model for Intelligent News Application. Cornell University. https://arxiv.org/pdf/2102.04887v2.pdf
+Wu, C., Wu, F., Yu, Y., Qi, T., Huang, Y., Liu, Q. (2021) *NewsBERT: Distilling Pre-trained Language Model for Intelligent News Application*. Cornell University. https://arxiv.org/pdf/2102.04887v2.pdf
