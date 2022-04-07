@@ -174,12 +174,11 @@ Our second hypothesis, that we would observe a kind of fatigue stemming from per
 
 **Patterns follow (somewhat) intuitive notions about reliability**
 
-The shape of the data as well as the proportions confirm intuitive or perhaps classical notions about reliability. The Government exhibits both the most significant difference between time periods, and the highest urgency proportions. The Guardian follows a similar shape, suggesting that it (think about official government communication in other channels) largely follows global best available data.
-- Findings indicate that it might be possible to capture urgency through simple NLP
-- Clear difference between liberal and conservative outlets
-- Contrary to H2, most outlets had realised the seriousness of Covid by TP3: no indication of fatigue (unless you are conservative)
-- General public slower to catch up to speed
-- Pattern follows (somewhat) intuitive notions about reliability
+The shape of the data as well as the proportions confirm intuitive or perhaps classical notions about reliability. The Government exhibits both the most significant difference between time periods, and the highest urgency proportions. Considering the amount of criticism related to communicative confusions and u-turns levied against 10 Downing Street over the course of the pandemic (<i>Covid Comms: Flexible Messaging or Government u-Turn?</i> | Prca, n.d.) it is perhaps surprising to learn that official communication follows the most intuitive pattern. A plausible explanation for this discrepancy is that governments communicate through many different channels, and it is likely that statements in interviews and on social media are more widely disseminated and thus constitute the "public" face of the government to a much greater extent than its press corner. If we were to extend the scope of our research, another topic could therefore be to investigate whether there is a discrepancy between the type of official statements conveyed through the government's official channels and the statements issued by its representatives.
+
+**General public slower to catch up to speed**
+
+While Twitter is not always the best representation of the general public (as Boyd and Crawford point out: we are only privy to a limited number of tweets, and there is no way to determine whether a Twitter account represents a real person (Boyd & Crawford, 2011), the results nevertheless indicate that some kind of public seemed to have gained an aggregate understanding about the urgency of the situation as the crisis wore on. What we suggest by this is that the lull in urgency from TP1 to TP2 and the subsequent jump to TP3 stem from the fact that it is reasonable to assume that most people lived in a state of confused limbo at the very outset, and only over time were able to gain sufficient information and understanding about the risks of the virus. 
 
 ### Limitations
 
@@ -201,7 +200,19 @@ Concerning the size of our datasets, especially with respect to official communi
 
 Lastly, the urgency threshold is a potential weak spot of our model, as the value ultimately was chosen based on trial and error procedure. We were not able to compare outcomes and findings for a range of threshold values chosen, which may be an interesting approach to better understand the robustness of a vector-based approach to measuring urgency. It is further worth noting that the threshold value that seems to appropriately represent human judgement on urgency of words is highly sensitive to the pre-trained model chosen.
 
+**Brief note on our choice of sources**
+
+We tried to choose a range of sources that would provide an idea about the state of COVID-communication in the UK. Of course, for a truly representative picture, we would have had to include several others (here it would have perhaps been prudent to include a more diverse set of government sources, for example. 
+
+Additionally, it was not possible to completely match the search methodology over our whole gambit of sources. While the Guardian API allowed for fine tuning search queries and specifying specific tags according to which to search, this was not precisely the case for the Telegraph, which also could explain its slightly greater urgency variability (while the Guardian search query only looked at articles tagged as 'politics/health', the Telegraph returned all articles mentioning a search query including 'covid, pandemic, lockdown', etc).
+
+Finally, all outlets published wildly varying amounts of articles during our chosen time periods, and although we measured our results in proportions and not absolute frequency, the presence of more significant outliers among the sources with bigger sample sizes (namely, the Telegraph and Twitter), of course impacts the mean communicated urgency for those outlets. 
+
 ## References
+
+Boyd, D., & Crawford, K. (2011). Six provocations for big data. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.1926431
+
+Covid comms: Flexible messaging or government u-turn? | prca. (n.d.). Retrieved 7 April 2022, from https://www.prca.org.uk/Covid-Comms-Flexible-messaging-government-U-turn
 
 Fetzer, T. (2022). Subsidising the spread of COVID-19: Evidence from the UK’S Eat-Out-to-Help-Out Scheme*, The Economic Journal, 132(643), Pages 1200–1217. https://doi.org/10.1093/ej/ueab074
 
