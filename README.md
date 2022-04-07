@@ -152,7 +152,7 @@ The two box plots above may elucidate some of the questions that might have aris
 
 **Twitter as pandemic tracker**
 
-Unsurprisingly, Twitter proved to showcase the most extreme opinions in either direction. Interesting to note, however, especially in comparison to other types of communication, is that Twitter serves as a rather competent gauge of aggregate public and official opinion. During the first peak, its users did not, as with most governments, seem to have picked up on the fact that the outbreak was particularly serious, which could explain why we do not see any outliers in any direction. Things change during the absolute low. Here, there is a large number of outliers that drag the average urgency score in a negative direction, perhaps suggesting that after having spent a summer sequestered in their rooms, the Twitter user base wanted to enjoy life again. From the second to the third peak, opinion shifts massively. All of those who previously wanted to remove societal restrictions now seem to want to institute the most draconian of safety measures, indicating that, taken with a pinch of salt, Twitter could be a serviceable pandemic tracker [maybe some research on this?]
+Unsurprisingly, Twitter proved to showcase the most extreme opinions in either direction. Interesting to note, however, especially in comparison to other types of communication, is that Twitter serves as a rather competent gauge of aggregate public and official opinion. During the first peak, its users did not, as with most governments, seem to have picked up on the fact that the outbreak was particularly serious, which could explain why we do not see any outliers in any direction. Things change during the absolute low. Here, there is a large number of outliers that drag the average urgency score in a negative direction, perhaps suggesting that after having spent a summer sequestered in their rooms, the Twitter user base wanted to enjoy life again. From the second to the third peak, opinion shifts massively. All of those who previously wanted to remove societal restrictions now seem to want to institute the most draconian of safety measures, indicating that, taken with a pinch of salt, Twitter could be a serviceable pandemic tracker (in fact, using social media to track outbreaks has yielded promising results in the past (Yousefinaghani et al., 2019), and somewhat unexpected indicators, such as Amazon reviews, have flippantly been used to predict COVID-outbreaks in the US (*Customers Are Flooding Yankee Candle’s Amazon Reviews with Claims That the Candles Have No Scent, but the Surge in Omicron Cases May Be to Blame*, 2021).
 
 ## Discussion
 
@@ -214,6 +214,8 @@ Boyd, D., & Crawford, K. (2011). *Six provocations for big data*. SSRN Electroni
 
 Cook, L. (n.d.) *Covid comms: Flexible messaging or government u-turn?* PRCA. Retrieved 7 April 2022, from https://www.prca.org.uk/Covid-Comms-Flexible-messaging-government-U-turn
 
+*Customers are flooding Yankee Candle’s Amazon reviews with claims that the candles have no scent, but the surge in Omicron cases may be to blame*. (2021, December 27). Northwestern College of Social Sciences and Humanities. https://cssh.northeastern.edu/customers-are-flooding-yankee-candles-amazon-reviews-with-claims-that-the-candles-have-no-scent-but-the-surge-in-omicron-cases-may-be-to-blame/
+
 Fetzer, T. (2022). *Subsidising the spread of COVID-19: Evidence from the UK’S Eat-Out-to-Help-Out Scheme*, The Economic Journal, 132(643), Pages 1200–1217. https://doi.org/10.1093/ej/ueab074
 
 Fletcher, R., Kalogeropoulos, A., Kleis Nielsen, R. (2020). *Majority think UK government COVID-19 response worse than other developed countries, almost half say response too focused on protecting the economy*. The UK COVID-19 news and information project. https://reutersinstitute.politics.ox.ac.uk/majority-think-uk-government-covid-19-response-worse-other-developed-countries-almost-half-say
@@ -231,3 +233,5 @@ Schwarz, A., Seeger, M. W., Auer, C., Brooke Rogers, M., & Pearce, J. M. (2016).
 The Lancet Microbe (Ed.). (2021). *UK government's COVID-19 Gamble*. The Lancet Microbe, 2(8). https://doi.org/10.1016/s2666-5247(21)00186-5
 
 Wu, C., Wu, F., Yu, Y., Qi, T., Huang, Y., Liu, Q. (2021) *NewsBERT: Distilling Pre-trained Language Model for Intelligent News Application*. Cornell University. https://arxiv.org/pdf/2102.04887v2.pdf
+
+Yousefinaghani, S., Dara, R., Poljak, Z., Bernardo, T. M., & Sharif, S. (2019). The assessment of twitter’s potential for outbreak detection: Avian influenza case study. Scientific Reports, 9(1), 18147. https://doi.org/10.1038/s41598-019-54388-4
