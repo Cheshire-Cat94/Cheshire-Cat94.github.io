@@ -31,6 +31,7 @@ Further qualitative studies have shown that the clashing of narratives, sometime
 **1. How can we use NLP to show a difference in communicated urgency over the course of a crisis?**
 
 >H1: *The proportion of urgent words is lower in TP2 than in TP1 and TP3*
+
 >H2: *The proportion of urgent words is lower in TP3 than in TP1*
 
 The Coronavirus having been such a hot topic over the past two years, guaranteed both timely and sufficient data, contributing to our choice of topic. Additionally, the observable, large, and quantifiable difference in "real urgency" (ICU bed occupancy) between wave peaks and lows, sets optimal conditions for an analysis. This further makes it reasonable to assume that indeed there should be a change in communication over time, allowing us to test if simple NLP can detect such differences. Lastly, if indeed simple NLP does detect such differences, the application of complex NLPs to similar research questions is rendered highly interesting.
