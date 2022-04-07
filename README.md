@@ -184,15 +184,22 @@ The shape of the data as well as the proportions confirm intuitive or perhaps cl
 ### Limitations
 
 There are several noteworthy limitations to our model. 
-Firstly, the Word2Vec model is not contextualized to texts treating the subject of Covid-19. If we had trained a contextualized model (FastText or BERT) ourselves, results may have been more reliable, as certain words are used in specific and context-dependent ways. Using FastText as a direct alternative to Word2Vec would still have allowed us to use vector representations of words. However, while Word2Vec operates on the word level, FastText operates on the character level. BERT also falls within word embedding models, but generates two vectors and is context specific. BERT models are transformer based, i.e. a bi-directional transformer model is trained on very large unlabelled text corpora. Enormous amounts of domain-specialized text data are however required to initially create general trained models from scratch, such as BioBERT or SciBERT models. Subsequently, such models can be fine-tuned in a rather straightforward fashion. **(Don't know how to include the covid twitter bert as i have no idea what that is.....)**
 
-A further potential point of concern may be that the pre-trained Google Glove used in our analysis is somewhat outdated. However, it seems unlikely that the use and linguistic meaning of urgency-related words have changed significantly over the last few years.
+Firstly, the Word2Vec model does not take into account the context of a word. This means that using our method, the following two sentences would have the same level of urgency:
 
-Concerning the size of our dataset, especially with respect to official communications, we see that a larger dataset would have been necessary to reach conventional significance levels in testing our effect sizes. this could have been done by extending the time periods or by looking at more time periods and grouping "lows" and "highs". 
+> My name is urgent
 
-From a methodological standpoint, our proposed framework to analyze urgency in text does not consider negations, which could potentially be biasing results in a problematic way. However, we have at this point decided to not exclude simple negations from our model (e.g. not urgent, not critcal, i.e. negation directly in front of adjective) as we expected a significant share of negations to be indirect.
+> My name is not urgent
 
-Additionally, the urgency threshold is a potential weak spot of our model, as the value ultimately was chosen based on trial an error procedure. We were not able to compare outcomes and findings for a range of threshold values choses, which may be an interesting approach to better understand the robustness of a vector-based approach to measuring urgency. it is also worth noting that the threshold value that seems to appropriately represent human judgement on urgency of words is highly sensitive to the pre-trained model chosen.
+Negations are only one example of how context may change the meaning, ultimately the urgency of a sentence. Excluding direct negations would have been a way to partially adjust for this issue. However, after having read a few articles contained in our data set, we did not expect a significant share of direct negations. Thus, we did not expect our result to become more reliable by excluding simple negations from our model (e.g. not urgent, not critcal, i.e. negation directly in front of adjective).
+
+Nevertheless, using a more complex, context sensitive model could render our results more reliable, an example being BERT. Training domain-specific models such as BERT, BioBERT or SciBERT, requires enormous amounts of text corpora and time. These domain-specific models can subsequently be fine-tuned to downstream tasks i.e named entity recognition or text classification, requiring less data and time. Relating to our research question, a "Covid-twitter-Bert", using mask language modelling, next sentence prediction, and sentence order prediction, is already in use. It has further proven effective in analyzing data on vaccine sentiment and the maternal vaccine stance in relation to the pandemic (Müller, Salathé & Kummervold, 2020). This model was trained specifically on twitter data, rendering it sub-optimal for our purposes. Keeping in mind that our study included a variety of different data sources, fine-tuning either BERT or NewsBERT (Wu et al., 2021) would in our case be more appropriate, though we actively decided against it given the scope of the assignment.
+
+A further potential point of concern may be that the Word2Vec pre-trained Google Glove used in our analysis is somewhat outdated. A direct alternative to Word2Vec could have been FastText, which is slightly more recent. However, it seems unlikely that the use and linguistic meaning of urgency-related words have changed significantly over the last few years.
+
+Concerning the size of our datasets, especially with respect to official communication, we see that a larger data set would have been necessary to reach conventional significance levels in testing our effect sizes. this could have been done by extending the time periods or by looking at more time periods and grouping "lows" and "highs". 
+
+Lastly, the urgency threshold is a potential weak spot of our model, as the value ultimately was chosen based on trial and error procedure. We were not able to compare outcomes and findings for a range of threshold values chosen, which may be an interesting approach to better understand the robustness of a vector-based approach to measuring urgency. It is further worth noting that the threshold value that seems to appropriately represent human judgement on urgency of words is highly sensitive to the pre-trained model chosen.
 
 ## References
 
@@ -206,6 +213,10 @@ Lockyer B, Islam S, Rahman A, Dickerson J,  Pickett K, Sheldon T, Wright J, McEa
 
 Mason, R. (2022). UK government has abandoned its own Covid health advice, leak reveals. The Guardian. https://www.theguardian.com/world/2022/feb/25/government-has-abandoned-its-own-covid-health-advice-leak-reveals
 
+Müller, M., Salathé, M., Kummervold, P. (2020) COVID-Twitter-BERT: A Natural Language Processing Model to Analyse COVID-19 Content on Twitter. Cornell University. https://arxiv.org/abs/2005.07503
+
 Schwarz, A., Seeger, M. W., Auer, C., Brooke Rogers, M., & Pearce, J. M. (2016). Chapter 4. The Psychology of Crisis Communication. In The Handbook of International Crisis Communication Research. Essay, John Wiley & Sons.  
 
 The Lancet Microbe (Ed.). (2021). UK government's COVID-19 Gamble. The Lancet Microbe, 2(8). https://doi.org/10.1016/s2666-5247(21)00186-5
+
+Wu, C., Wu, F., Yu, Y., Qi, T., Huang, Y., Liu, Q. (2021) NewsBERT: Distilling Pre-trained Language Model for Intelligent News Application. Cornell University. https://arxiv.org/pdf/2102.04887v2.pdf
