@@ -30,9 +30,8 @@ Further qualitative studies have shown that the clashing of narratives, sometime
 
 **1. How can we use NLP to show a difference in communicated urgency over the course of a crisis?**
 
-     H1: The proportion of urgent words is lower in TP2 than in TP1 and TP3
-
-     H1: The proportion of urgent words is lower in TP3 than in TP1
+>H1: *The proportion of urgent words is lower in TP2 than in TP1 and TP3*
+>H2: *The proportion of urgent words is lower in TP3 than in TP1*
 
 The Coronavirus having been such a hot topic over the past two years, guaranteed both timely and sufficient data, contributing to our choice of topic. Additionally, the observable, large, and quantifiable difference in "real urgency" (ICU bed occupancy) between wave peaks and lows, sets optimal conditions for an analysis. This further makes it reasonable to assume that indeed there should be a change in communication over time, allowing us to test if simple NLP can detect such differences. Lastly, if indeed simple NLP does detect such differences, the application of complex NLPs to similar research questions is rendered highly interesting.
 
@@ -168,7 +167,7 @@ When moving on from the confusion of the first wave, a clear difference between 
 
 **Different reactions to more data**
 
-Our second hypothesis, that we would observe a kind of fatigue stemming from persistent reporting about the pandemic for several years, was soundly rejected. Instead, most outlets, including the general public, seemed to have understood the seriousness of the virus by the third time period. The Telegraph data does not indicate that it is opposed to this view per se, but rather that it reacted to the knowledge we had about the pandemic differently than other sources. Shifting from treating the virus as something to be fought to something to be lived with could of course be interpreted as a move away from the urgent to the mundane, but flipped on its head the same reaction could be interpreted as treating the virus as so severe that we cannot fight it. If the same methodology were to be used on a bigger dataset, capturing the shift from prevention to mitigation or facilitation could be an important parameter to keep in mind as this likely would shift the surface level urgency of communication downwards while the overall picture might remain the same.
+Our second hypothesis, that we would observe a kind of fatigue stemming from persistent reporting about the pandemic for several years, was soundly rejected. Instead, most outlets, including the general public, seemed to have understood the seriousness of the virus by the third time period. The Telegraph data does not indicate that it is opposed to this view *per se*, but rather that it reacted to the knowledge we had about the pandemic differently than other sources. Shifting from treating the virus as something to be *fought* to something to be *lived* with could of course be interpreted as a move away from the urgent to the mundane, but flipped on its head the same reaction could be interpreted as treating the virus as so severe that we cannot fight it. If the same methodology were to be used on a bigger dataset, capturing the shift from *prevention* to *mitigation* or *facilitation* could be an important parameter to keep in mind as this likely would shift the surface level urgency of communication downwards while the overall picture might remain the same.
 
 ![Figure 5_Rplot 04](https://raw.githubusercontent.com/Cheshire-Cat94/Cheshire-Cat94.github.io/main/Rplot04.png)
 
