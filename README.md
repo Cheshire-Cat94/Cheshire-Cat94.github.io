@@ -178,7 +178,7 @@ The shape of the data as well as the proportions confirm intuitive or perhaps cl
 
 **General public slower to catch up to speed**
 
-While Twitter is not always the best representation of the general public (as Boyd and Crawford point out: we are only privy to a limited number of tweets, and there is no way to determine whether a Twitter account represents a real person (Boyd & Crawford, 2011), the results nevertheless indicate that some kind of public seemed to have gained an aggregate understanding about the urgency of the situation as the crisis wore on. What we suggest by this is that the lull in urgency from TP1 to TP2 and the subsequent jump to TP3 stem from the fact that it is reasonable to assume that most people lived in a state of confused limbo at the very outset, and only over time were able to gain sufficient information and understanding about the risks of the virus. 
+While Twitter is not always the best representation of the general public (as Boyd and Crawford point out: we are only privy to a limited number of tweets, and there is no way to determine whether a Twitter account represents a real person (Boyd & Crawford, 2011)), the results nevertheless indicate that some kind of public seemed to have gained an aggregate understanding about the urgency of the situation as the crisis wore on. What we suggest by this is that the lull in urgency from TP1 to TP2 and the subsequent jump to TP3 stem from the fact that it is reasonable to assume that most people lived in a state of confused limbo at the very outset, and only over time were able to gain sufficient information and understanding about the risks of the virus. 
 
 ### Limitations
 
