@@ -210,7 +210,7 @@ Finally, all outlets published wildly varying amounts of articles during our cho
 
 ## Conclusion
 
-In conclusion, the findings show that indeed it is possible to use simple NLP to detect a difference in communicated urgency urgency over the course of the COVID-19 pandemic. Applying more complex NLP models to assess the change of communicated urgency over time, and using a wider range of sources &mdash; particularly with regard to official communication &mdash; may provide us with further insights, which in turn may aid in optimising future crisis communication.
+In conclusion, the findings show that indeed it is possible to use simple NLP to detect a difference in communicated urgency over the course of the COVID-19 pandemic. We were able to detect different levels of urgency expressed in texts with the methodology developed and were able to verify manually that our mechanism indeed can identify which texts convey urgency more than others. Yet, we find that perhaps applying more complex NLP models to assess the change of communicated urgency over time could have helped us to capture more nuanced aspects of language used to express urgency. Furthermore, using a wider range of sources — particularly regarding official communication — and larger samples may have provided us with further insights. Finally, despite some clear shortcomings, we believe that our initial findings are promising and demonstrate how NLP could be used to analyze and improve crisis communications in future.
 
 ## References
 
