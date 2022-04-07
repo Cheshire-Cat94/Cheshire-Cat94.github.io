@@ -70,7 +70,7 @@ Comparing the figures above, it is clear that the relative peaks in ICU occupanc
 
 ### Data Collection
 
-This section will briefly present our data collection methods per source. The respective code can be found in the respoitory under the file name *Covid severity NLP.ipynb*
+This section will briefly present our data collection methods per source. The respective code can be found in the respoitory under the file name [*Covid severity NLP.ipynb*](https://github.com/Cheshire-Cat94/Cheshire-Cat94.github.io/blob/main/Covid%20severity%20NLP.ipynb)
 
 #### Official Communication
 
